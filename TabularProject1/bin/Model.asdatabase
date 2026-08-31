@@ -1,5 +1,5 @@
 {
-  "name": "SemanticModel",
+  "name": "TabularProject1",
   "compatibilityLevel": 1200,
   "model": {
     "culture": "en-IN",
@@ -308,6 +308,5 @@
         "value": "400"
       }
     ]
-  },
-  "id": "SemanticModel"
+  }
 }
