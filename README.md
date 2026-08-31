@@ -1,96 +1,50 @@
-# SSAS Tabular Analytical Model
+# SSAS Learning
 
-## Project Overview
+This repository contains my **SSAS (SQL Server Analysis Services) learning and practice**.
 
-Built an analytical solution using a **SQL Server Data Warehouse** connected to an **SSAS Tabular Model**. The project focuses on analytical modeling, DAX-based calculations, and business reporting using Power BI.
+I am using this repository to learn **SSAS Tabular**, DAX, data modeling, and how SSAS works with SQL Server and Power BI.
 
-The solution demonstrates how data can flow from a SQL Server Data Warehouse into **SQL Server Analysis Services (SSAS) Tabular**, where relationships, hierarchies, and DAX measures are created to provide consistent and reusable analytical data for reporting.
+It includes small examples, practice exercises, notes, and sample projects that I build while learning.
 
-## Architecture
+## What I'm Learning
 
-**SQL Server Data Warehouse → SSAS Tabular Model → Power BI**
+* SSAS Tabular
+* Tabular data modeling
+* Tables and relationships
+* Hierarchies
+* DAX
+* Measures and calculations
+* Data sources and connections
+* Processing SSAS models
+* Deploying SSAS models
+* Connecting SSAS with Power BI
+* Semantic/analytical modeling
 
-* **SQL Server Data Warehouse:** Stores structured and transformed business data using a dimensional model.
-* **SSAS Tabular:** Provides the semantic/analytical layer with relationships, hierarchies, and DAX measures.
-* **Power BI:** Connects to the SSAS Tabular model for reporting, visualization, and analysis.
+## Tools & Technologies
 
-## Key Components
+* SQL Server
+* SSAS Tabular
+* DAX
+* Power BI
+* SQL
 
-### 1. SQL Server Data Warehouse
+## Repository Structure
 
-* Designed a dimensional data model using fact and dimension tables.
-* Prepared structured data for analytical consumption.
-* Created relationships between fact and dimension tables.
-
-### 2. SSAS Tabular Model
-
-* Connected the SQL Server Data Warehouse to SSAS.
-* Created tables, relationships, and hierarchies.
-* Defined business-friendly measures using **DAX**.
-* Implemented calculations required for analytical reporting.
-* Explored SSAS Tabular modeling and processing concepts.
-
-### 3. DAX Measures
-
-Created reusable measures for business analysis, such as:
-
-* Total Sales
-* Total Quantity
-* Average Sales
-* Total Customers
-* Year-over-Year Analysis
-* Percentage and aggregation-based calculations
-
-### 4. Power BI Reporting
-
-* Connected Power BI to the SSAS Tabular model.
-* Used SSAS measures for reporting and visualization.
-* Built reports to analyze business performance and trends.
-
-## Data Flow
+This repository will grow as I learn. It may contain:
 
 ```text
-Source Data
-    ↓
-SQL Server Data Warehouse
-    ↓
-Dimensional Model
-(Fact + Dimension Tables)
-    ↓
-SSAS Tabular Model
-    ↓
-Relationships + Hierarchies + DAX Measures
-    ↓
-Power BI
-    ↓
-Reports & Business Analysis
+ssas-learning/
+│
+├── notes/
+├── dax/
+├── tabular-models/
+├── exercises/
+├── examples/
+└── projects/
 ```
 
-## Technologies Used
+## Purpose
 
-* **Microsoft SQL Server**
-* **SQL Server Analysis Services (SSAS) Tabular**
-* **DAX**
-* **Power BI**
-* **SQL**
-* **Data Warehousing**
-* **Dimensional Modeling**
+The main purpose of this repository is to **learn by doing** and keep track of my SSAS learning progress.
 
-## Project Objective
-
-The objective of this project is to gain hands-on experience with **SSAS Tabular**, understand how a semantic model is built on top of a SQL Server Data Warehouse, create reusable DAX measures, and consume the analytical model through Power BI.
-
-## Key Learning
-
-Through this project, I gained practical understanding of:
-
-* SSAS Tabular architecture
-* Dimensional modeling
-* Fact and dimension relationships
-* Tabular relationships and hierarchies
-* DAX measures
-* Analytical/semantic modeling
-* Power BI connectivity with SSAS
-* Data warehouse to semantic model data flow
-* Concepts involved in processing and deploying SSAS models
-****
+The examples and projects in this repository are mainly for **practice and learning**, rather than being a single complete project.
