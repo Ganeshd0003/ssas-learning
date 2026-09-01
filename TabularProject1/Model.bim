@@ -6,7 +6,7 @@
     "dataSources": [
       {
         "name": "SqlServer GANESHSQLEXPRESS DataWarehouse",
-        "connectionString": "Provider=SQLOLEDB;Data Source=GANESH\\SQLEXPRESS;Initial Catalog=DataWarehouse;Integrated Security=SSPI;Persist Security Info=false",
+        "connectionString": "Provider=SQLOLEDB;Data Source=GANESH\\SQLEXPRESS;Initial Catalog=DataWarehouse;Persist Security Info=true;User ID=sqluser",
         "impersonationMode": "impersonateServiceAccount",
         "annotations": [
           {
@@ -300,6 +300,22 @@
             "value": "gold"
           }
         ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "ea76fcd0-3c9a-48b0-931a-c3ef1217afa7",
+        "fromTable": "fact_sales",
+        "fromColumn": "customer_key",
+        "toTable": "dim_customers",
+        "toColumn": "customer_key"
+      },
+      {
+        "name": "0a58b6d1-2a3b-4449-9434-1445371feae7",
+        "fromTable": "fact_sales",
+        "fromColumn": "product_key",
+        "toTable": "dim_products",
+        "toColumn": "product_key"
       }
     ],
     "annotations": [

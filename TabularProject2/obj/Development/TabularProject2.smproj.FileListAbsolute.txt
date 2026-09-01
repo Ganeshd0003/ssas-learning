@@ -1,0 +1,2 @@
+C:\Users\ganes\OneDrive\Desktop\ssas-learning\TabularProject2\obj\Development\TabularProject2.smproj.AssemblyReference.cache
+C:\Users\ganes\OneDrive\Desktop\ssas-learning\TabularProject2\obj\Development\TabularProject2.smproj.CoreCompileInputs.cache
