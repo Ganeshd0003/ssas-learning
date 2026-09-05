@@ -28,21 +28,6 @@ It includes small examples, practice exercises, notes, and sample projects that 
 * Power BI
 * SQL
 
-## Repository Structure
-
-This repository will grow as I learn. It may contain:
-
-```text
-ssas-learning/
-│
-├── notes/
-├── dax/
-├── tabular-models/
-├── exercises/
-├── examples/
-└── projects/
-```
-
 ## Purpose
 
 The main purpose of this repository is to **learn by doing** and keep track of my SSAS learning progress.
