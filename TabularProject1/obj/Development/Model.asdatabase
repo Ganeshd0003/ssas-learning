@@ -5,8 +5,8 @@
     "culture": "en-IN",
     "dataSources": [
       {
-        "name": "SqlServer GANESHSQLEXPRESS DataWarehouse",
-        "connectionString": "Provider=SQLOLEDB;Data Source=GANESH\\SQLEXPRESS;Initial Catalog=DataWarehouse;Persist Security Info=true;User ID=sqluser",
+        "name": "SqlServer GANESHSQLEXPRESS SalesDB",
+        "connectionString": "Provider=SQLOLEDB;Data Source=GANESH\\SQLEXPRESS;Initial Catalog=SalesDB;Persist Security Info=false;User ID=sqluse",
         "impersonationMode": "impersonateServiceAccount",
         "annotations": [
           {
@@ -18,304 +18,490 @@
     ],
     "tables": [
       {
-        "name": "dim_customers",
+        "name": "Customers",
         "columns": [
           {
-            "name": "customer_key",
+            "name": "CustomerID",
             "dataType": "int64",
-            "sourceColumn": "customer_key",
-            "sourceProviderType": "BigInt"
-          },
-          {
-            "name": "customer_id",
-            "dataType": "int64",
-            "sourceColumn": "customer_id",
+            "sourceColumn": "CustomerID",
             "sourceProviderType": "Integer"
           },
           {
-            "name": "customer_number",
+            "name": "FirstName",
             "dataType": "string",
-            "sourceColumn": "customer_number",
+            "sourceColumn": "FirstName",
             "sourceProviderType": "Char"
           },
           {
-            "name": "first_name",
+            "name": "LastName",
             "dataType": "string",
-            "sourceColumn": "first_name",
+            "sourceColumn": "LastName",
             "sourceProviderType": "Char"
           },
           {
-            "name": "last_name",
+            "name": "Country",
             "dataType": "string",
-            "sourceColumn": "last_name",
+            "sourceColumn": "Country",
             "sourceProviderType": "Char"
           },
           {
-            "name": "country",
-            "dataType": "string",
-            "sourceColumn": "country",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "marital_status",
-            "dataType": "string",
-            "sourceColumn": "marital_status",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "gender",
-            "dataType": "string",
-            "sourceColumn": "gender",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "birthdate",
-            "dataType": "string",
-            "sourceColumn": "birthdate",
-            "sourceProviderType": "WChar"
-          },
-          {
-            "name": "create_date",
-            "dataType": "string",
-            "sourceColumn": "create_date",
-            "sourceProviderType": "WChar"
+            "name": "Score",
+            "dataType": "int64",
+            "sourceColumn": "Score",
+            "sourceProviderType": "Integer"
           }
         ],
         "partitions": [
           {
-            "name": "dim_customers",
+            "name": "Customers",
             "dataView": "full",
             "source": {
               "type": "query",
-              "query": " \t\t\t\tSELECT [gold].[dim_customers].*   FROM [gold].[dim_customers] ",
-              "dataSource": "SqlServer GANESHSQLEXPRESS DataWarehouse"
-            }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "_TM_ExtProp_QueryDefinition",
-            "value": " \t\t\t\tSELECT [gold].[dim_customers].*   FROM [gold].[dim_customers] "
-          },
-          {
-            "name": "_TM_ExtProp_DbTableName",
-            "value": "dim_customers"
-          },
-          {
-            "name": "_TM_ExtProp_DbSchemaName",
-            "value": "gold"
-          }
-        ]
-      },
-      {
-        "name": "dim_products",
-        "columns": [
-          {
-            "name": "product_key",
-            "dataType": "int64",
-            "sourceColumn": "product_key",
-            "sourceProviderType": "BigInt"
-          },
-          {
-            "name": "product_id",
-            "dataType": "int64",
-            "sourceColumn": "product_id",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "product_number",
-            "dataType": "string",
-            "sourceColumn": "product_number",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "product_name",
-            "dataType": "string",
-            "sourceColumn": "product_name",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "category_id",
-            "dataType": "string",
-            "sourceColumn": "category_id",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "category",
-            "dataType": "string",
-            "sourceColumn": "category",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "subcategory",
-            "dataType": "string",
-            "sourceColumn": "subcategory",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "maintenance",
-            "dataType": "string",
-            "sourceColumn": "maintenance",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "cost",
-            "dataType": "int64",
-            "sourceColumn": "cost",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "product_line",
-            "dataType": "string",
-            "sourceColumn": "product_line",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "start_date",
-            "dataType": "string",
-            "sourceColumn": "start_date",
-            "sourceProviderType": "WChar"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "dim_products",
-            "dataView": "full",
-            "source": {
-              "type": "query",
-              "query": " \t\t\t\tSELECT [gold].[dim_products].*   FROM [gold].[dim_products] ",
-              "dataSource": "SqlServer GANESHSQLEXPRESS DataWarehouse"
-            }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "_TM_ExtProp_QueryDefinition",
-            "value": " \t\t\t\tSELECT [gold].[dim_products].*   FROM [gold].[dim_products] "
-          },
-          {
-            "name": "_TM_ExtProp_DbTableName",
-            "value": "dim_products"
-          },
-          {
-            "name": "_TM_ExtProp_DbSchemaName",
-            "value": "gold"
-          }
-        ]
-      },
-      {
-        "name": "fact_sales",
-        "columns": [
-          {
-            "name": "order_number",
-            "dataType": "string",
-            "sourceColumn": "order_number",
-            "sourceProviderType": "Char"
-          },
-          {
-            "name": "product_key",
-            "dataType": "int64",
-            "sourceColumn": "product_key",
-            "sourceProviderType": "BigInt"
-          },
-          {
-            "name": "customer_key",
-            "dataType": "int64",
-            "sourceColumn": "customer_key",
-            "sourceProviderType": "BigInt"
-          },
-          {
-            "name": "order_date",
-            "dataType": "string",
-            "sourceColumn": "order_date",
-            "sourceProviderType": "WChar"
-          },
-          {
-            "name": "shipping_date",
-            "dataType": "string",
-            "sourceColumn": "shipping_date",
-            "sourceProviderType": "WChar"
-          },
-          {
-            "name": "due_date",
-            "dataType": "string",
-            "sourceColumn": "due_date",
-            "sourceProviderType": "WChar"
-          },
-          {
-            "name": "sales_amount",
-            "dataType": "int64",
-            "sourceColumn": "sales_amount",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "quantity",
-            "dataType": "int64",
-            "sourceColumn": "quantity",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "price",
-            "dataType": "double",
-            "sourceColumn": "price",
-            "sourceProviderType": "Numeric"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "fact_sales",
-            "dataView": "full",
-            "source": {
-              "type": "query",
-              "query": " \t\t\t\tSELECT [gold].[fact_sales].*   FROM [gold].[fact_sales] ",
-              "dataSource": "SqlServer GANESHSQLEXPRESS DataWarehouse"
+              "query": " \t\t\t\tSELECT [Sales].[Customers].*   FROM [Sales].[Customers] ",
+              "dataSource": "SqlServer GANESHSQLEXPRESS SalesDB"
             }
           }
         ],
         "measures": [
           {
-            "name": "Total_Sales",
-            "expression": " SUM(fact_sales[sales_amount])"
+            "name": "Total Score",
+            "expression": " SUM(Customers[Score])"
           },
           {
-            "name": "Min_sales",
-            "expression": " MIN(fact_sales[sales_amount])"
-          },
-          {
-            "name": "Max_Sales",
-            "expression": " MAX(fact_sales[sales_amount])"
+            "name": "Total Number Of Customer",
+            "expression": " COUNT(Customers[CustomerID])"
           }
         ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
-            "value": " \t\t\t\tSELECT [gold].[fact_sales].*   FROM [gold].[fact_sales] "
+            "value": " \t\t\t\tSELECT [Sales].[Customers].*   FROM [Sales].[Customers] "
           },
           {
             "name": "_TM_ExtProp_DbTableName",
-            "value": "fact_sales"
+            "value": "Customers"
           },
           {
             "name": "_TM_ExtProp_DbSchemaName",
-            "value": "gold"
+            "value": "Sales"
+          }
+        ]
+      },
+      {
+        "name": "Employees",
+        "columns": [
+          {
+            "name": "EmployeeID",
+            "dataType": "int64",
+            "sourceColumn": "EmployeeID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "sourceColumn": "FirstName",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "sourceColumn": "LastName",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Department",
+            "dataType": "string",
+            "sourceColumn": "Department",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "BirthDate",
+            "dataType": "string",
+            "sourceColumn": "BirthDate",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Gender",
+            "dataType": "string",
+            "sourceColumn": "Gender",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Salary",
+            "dataType": "int64",
+            "sourceColumn": "Salary",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ManagerID",
+            "dataType": "int64",
+            "sourceColumn": "ManagerID",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Employees",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [Sales].[Employees].*   FROM [Sales].[Employees] ",
+              "dataSource": "SqlServer GANESHSQLEXPRESS SalesDB"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Sum of Salary",
+            "expression": " SUM(Employees[Salary])"
+          },
+          {
+            "name": "Minimum Salary",
+            "expression": " MIN(Employees[Salary])"
+          },
+          {
+            "name": "Maximum Salary",
+            "expression": " MAX(Employees[Salary])"
+          },
+          {
+            "name": "Avegage Salary",
+            "expression": " AVERAGE(Employees[Salary])"
+          },
+          {
+            "name": "Total Number of Employees",
+            "expression": " COUNT(Employees[EmployeeID])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [Sales].[Employees].*   FROM [Sales].[Employees] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Employees"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Sales"
+          }
+        ]
+      },
+      {
+        "name": "Orders",
+        "columns": [
+          {
+            "name": "OrderID",
+            "dataType": "int64",
+            "sourceColumn": "OrderID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "sourceColumn": "ProductID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SalesPersonID",
+            "dataType": "int64",
+            "sourceColumn": "SalesPersonID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "OrderDate",
+            "dataType": "string",
+            "sourceColumn": "OrderDate",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ShipDate",
+            "dataType": "string",
+            "sourceColumn": "ShipDate",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "OrderStatus",
+            "dataType": "string",
+            "sourceColumn": "OrderStatus",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ShipAddress",
+            "dataType": "string",
+            "sourceColumn": "ShipAddress",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "BillAddress",
+            "dataType": "string",
+            "sourceColumn": "BillAddress",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "int64",
+            "sourceColumn": "Quantity",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Sales",
+            "dataType": "int64",
+            "sourceColumn": "Sales",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CreationTime",
+            "dataType": "string",
+            "sourceColumn": "CreationTime",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Orders",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [Sales].[Orders].*   FROM [Sales].[Orders] ",
+              "dataSource": "SqlServer GANESHSQLEXPRESS SalesDB"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Number of Orders",
+            "expression": " COUNT(Orders[OrderID])"
+          },
+          {
+            "name": "Total Purchased Customers",
+            "expression": " DISTINCTCOUNT(Orders[CustomerID])  "
+          },
+          {
+            "name": "Total Sales",
+            "expression": " SUM(Orders[Sales])"
+          },
+          {
+            "name": "Total Quantity Sold",
+            "expression": " SUM(Orders[Quantity])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [Sales].[Orders].*   FROM [Sales].[Orders] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Orders"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Sales"
+          }
+        ]
+      },
+      {
+        "name": "OrdersArchive",
+        "columns": [
+          {
+            "name": "OrderID",
+            "dataType": "int64",
+            "sourceColumn": "OrderID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "sourceColumn": "ProductID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SalesPersonID",
+            "dataType": "int64",
+            "sourceColumn": "SalesPersonID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "OrderDate",
+            "dataType": "string",
+            "sourceColumn": "OrderDate",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ShipDate",
+            "dataType": "string",
+            "sourceColumn": "ShipDate",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "OrderStatus",
+            "dataType": "string",
+            "sourceColumn": "OrderStatus",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ShipAddress",
+            "dataType": "string",
+            "sourceColumn": "ShipAddress",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "BillAddress",
+            "dataType": "string",
+            "sourceColumn": "BillAddress",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "int64",
+            "sourceColumn": "Quantity",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Sales",
+            "dataType": "int64",
+            "sourceColumn": "Sales",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CreationTime",
+            "dataType": "string",
+            "sourceColumn": "CreationTime",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "OrdersArchive",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [Sales].[OrdersArchive].*   FROM [Sales].[OrdersArchive] ",
+              "dataSource": "SqlServer GANESHSQLEXPRESS SalesDB"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [Sales].[OrdersArchive].*   FROM [Sales].[OrdersArchive] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "OrdersArchive"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Sales"
+          }
+        ]
+      },
+      {
+        "name": "Products",
+        "columns": [
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "sourceColumn": "ProductID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Product",
+            "dataType": "string",
+            "sourceColumn": "Product",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Category",
+            "dataType": "string",
+            "sourceColumn": "Category",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Price",
+            "dataType": "int64",
+            "sourceColumn": "Price",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Products",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [Sales].[Products].*   FROM [Sales].[Products] ",
+              "dataSource": "SqlServer GANESHSQLEXPRESS SalesDB"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Number Of products",
+            "expression": " COUNT(Products[ProductID])"
+          },
+          {
+            "name": "Total Categories",
+            "expression": " DISTINCTCOUNT(Products[Category])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [Sales].[Products].*   FROM [Sales].[Products] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Products"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Sales"
           }
         ]
       }
     ],
     "relationships": [
       {
-        "name": "ea76fcd0-3c9a-48b0-931a-c3ef1217afa7",
-        "fromTable": "fact_sales",
-        "fromColumn": "customer_key",
-        "toTable": "dim_customers",
-        "toColumn": "customer_key"
+        "name": "456e6a7a-2b0b-4dd9-8628-25394a0ee223",
+        "fromTable": "Orders",
+        "fromColumn": "CustomerID",
+        "toTable": "Customers",
+        "toColumn": "CustomerID"
       },
       {
-        "name": "0a58b6d1-2a3b-4449-9434-1445371feae7",
-        "fromTable": "fact_sales",
-        "fromColumn": "product_key",
-        "toTable": "dim_products",
-        "toColumn": "product_key"
+        "name": "bc6fa83a-0635-4b2e-9c7a-c2bd573d944d",
+        "fromTable": "Orders",
+        "fromColumn": "SalesPersonID",
+        "toTable": "Employees",
+        "toColumn": "EmployeeID"
+      },
+      {
+        "name": "2e6cc116-a53b-4bf9-90e7-1900de938aa6",
+        "fromTable": "Orders",
+        "fromColumn": "ProductID",
+        "toTable": "Products",
+        "toColumn": "ProductID"
+      },
+      {
+        "name": "537ca628-06f2-4c32-a960-a53ecab11e7a",
+        "fromTable": "OrdersArchive",
+        "fromColumn": "OrderID",
+        "toTable": "Orders",
+        "toColumn": "OrderID"
       }
     ],
     "annotations": [
