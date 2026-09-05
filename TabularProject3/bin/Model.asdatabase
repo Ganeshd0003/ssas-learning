@@ -1,0 +1,164 @@
+{
+  "name": "TabularProject3",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-IN",
+    "dataSources": [
+      {
+        "name": "SqlServer GANESHSQLEXPRESS MyDatabase",
+        "connectionString": "Provider=SQLOLEDB;Data Source=GANESH\\SQLEXPRESS;Persist Security Info=true;User ID=sqluserr;Initial Catalog=MyDatabase",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "customers",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "sourceColumn": "id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "first_name",
+            "dataType": "string",
+            "sourceColumn": "first_name",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "country",
+            "dataType": "string",
+            "sourceColumn": "country",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "score",
+            "dataType": "int64",
+            "sourceColumn": "score",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "customers",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[customers].*   FROM [dbo].[customers] ",
+              "dataSource": "SqlServer GANESHSQLEXPRESS MyDatabase"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Sum Of Score",
+            "expression": " SUM(customers[score])"
+          },
+          {
+            "name": "Average Of Score",
+            "expression": " AVERAGE(customers[score])"
+          },
+          {
+            "name": "Min Score",
+            "expression": " MIN(customers[score])"
+          },
+          {
+            "name": "Max Score",
+            "expression": " MAX(customers[score])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[customers].*   FROM [dbo].[customers] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "customers"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "orders",
+        "columns": [
+          {
+            "name": "order_id",
+            "dataType": "int64",
+            "sourceColumn": "order_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "int64",
+            "sourceColumn": "customer_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "order_date",
+            "dataType": "string",
+            "sourceColumn": "order_date",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "sales",
+            "dataType": "int64",
+            "sourceColumn": "sales",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "orders",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[orders].*   FROM [dbo].[orders] ",
+              "dataSource": "SqlServer GANESHSQLEXPRESS MyDatabase"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Number of Orders",
+            "expression": " COUNT(orders[customer_id])"
+          },
+          {
+            "name": "Total Sales",
+            "expression": " SUM(orders[sales])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[orders].*   FROM [dbo].[orders] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "orders"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  }
+}
