@@ -154,6 +154,17 @@
         ]
       }
     ],
+    "relationships": [
+      {
+        "name": "159b69b4-eeee-467f-ace6-15515e3474e7",
+        "fromCardinality": "one",
+        "fromTable": "customers",
+        "fromColumn": "id",
+        "toTable": "orders",
+        "toColumn": "customer_id",
+        "crossFilteringBehavior": "bothDirections"
+      }
+    ],
     "annotations": [
       {
         "name": "ClientCompatibilityLevel",
