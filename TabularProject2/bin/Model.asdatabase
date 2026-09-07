@@ -303,7 +303,8 @@
           },
           {
             "name": "Average Price of Item",
-            "expression": " AVERAGE(fact_sales[price])"
+            "expression": " AVERAGE(fact_sales[price])",
+            "formatString": "0.00"
           },
           {
             "name": "Female Sales",
